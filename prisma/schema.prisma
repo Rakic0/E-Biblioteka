@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Autor {
+  id      Int    @id @default(autoincrement())
+  ime     String
+  prezime String
+  opis    String
+
+  Knjiga Knjiga[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model Kategorija {
+  id    Int    @id @default(autoincrement())
+  naziv String
+
+  Knjiga Knjiga[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model Knjiga {
+  id               Int    @id @default(autoincrement())
+  kolicina         Int
+  pregledano       Int    @default(0)
+  godina_izdavanje Int    @default(2023)
+  naslov           String
+  opis             String
+  slika            String
+
+  autor_id Int
+  Autor    Autor @relation(fields: [autor_id], references: [id])
+
+  kategorija_id Int
+  Kategorija    Kategorija @relation(fields: [kategorija_id], references: [id])
+
+  KorisnikKnjiga KorisnikKnjiga[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model KorisnikKnjiga {
+  id      Int     @id @default(autoincrement())
+  vraceno Boolean
+
+  knjiga_id Int
+  Knjiga    Knjiga @relation(fields: [knjiga_id], references: [id])
+
+  korisnik_id Int
+  Korisnik    Korisnik @relation(fields: [korisnik_id], references: [id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model Korisnik {
+  id       Int     @id @default(autoincrement())
+  ime      String
+  prezime  String
+  email    String
+  password String
+  admin    Boolean
+
+  KorisnikKnjiga KorisnikKnjiga[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
