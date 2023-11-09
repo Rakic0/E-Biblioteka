@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-dashed w-full h-1 mt-10"></div>
         <p className="text-white text-14 opacity-50 absolute bottom-5 left-1/2 -translate-x-1/2">
-          © 2022 ЕТШ "Мија Станимировић" - Ниш
+          © 2022 ЕТШ Мија &quot;Станимировић&quot; - Ниш
         </p>
       </div>
     </footer>
