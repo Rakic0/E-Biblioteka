@@ -30,6 +30,10 @@
 }
 
 @layer components {
+  .nav {
+    box-shadow: 0px 4px 4px 0px rgba(0, 60, 149, 0.25);
+  }
+
   .hero__background {
     background-image: linear-gradient(
         90deg,
@@ -46,5 +50,35 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  }
+
+  .filter__background {
+    background-image: linear-gradient(
+        90deg,
+        #003c95 23.93%,
+        rgba(0, 60, 149, 0.25) 100%
+      ),
+      url("./images/filter.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .admin__background {
+    background: linear-gradient(90deg, #003c95 0%, rgba(0, 60, 149, 0.25) 100%),
+      url("./images/admin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .aside-item:not(:last-of-type)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
   }
 }

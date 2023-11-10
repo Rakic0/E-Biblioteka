@@ -35,6 +35,7 @@ model Knjiga {
   pregledano       Int    @default(0)
   godina_izdavanje Int    @default(2023)
   naslov           String
+  slug             String @default("")
   opis             String
   slika            String
 

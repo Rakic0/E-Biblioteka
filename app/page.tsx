@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
+import Link from "next/link";
 
 // Custom imports
 import Book from "./components/Book";
@@ -39,23 +40,27 @@ export default async function Home() {
 
   return (
     <main className="mb-96">
-      <section className="hero__background w-full h-[54.5rem] flex items-center mb-28">
-        <div className="text-white w-[44.7rem] ml-96">
-          <h2 className="text-47 font-semibold leading-tight mb-2">
-            Погледајте нашу понуду књига
-          </h2>
-          <p className="text-17 font-medium mb-2">
-            Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
-            accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
-            eaque omnis et velit cupiditate minus asperiores ut.
-          </p>
-          <Button>Понуда</Button>
+      <section className="hero__background w-full h-[54.5rem] flex items-center justify-start mb-28">
+        <div className="text-white w-[140rem] mx-auto">
+          <div className="w-[44.7rem]">
+            <h2 className="text-47 font-semibold leading-tight mb-4">
+              Погледајте нашу понуду књига
+            </h2>
+            <p className="text-17 font-medium mb-4">
+              Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
+              accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
+              eaque omnis et velit cupiditate minus asperiores ut.
+            </p>
+          </div>
+          <Link href={`/books`}>
+            <Button>Понуда</Button>
+          </Link>
         </div>
       </section>
 
       <Separator text="Најчитаније" />
 
-      <section className="max-w-[140rem] mx-auto mt-28">
+      <section className="w-[140rem] mx-auto mt-28">
         {/* Najcitanije */}
         <section className="grid grid-cols-4 mb-28">
           {books.map((book) => (
@@ -93,7 +98,9 @@ export default async function Home() {
                 eaque omnis et velit cupiditate minus asperiores ut.
               </p>
             </div>
-            <Button>Понуда</Button>
+            <Link href={`/books`}>
+              <Button>Понуда</Button>
+            </Link>
           </div>
 
           <div>
