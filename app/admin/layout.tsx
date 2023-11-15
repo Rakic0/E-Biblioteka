@@ -14,7 +14,7 @@ export default function AdminLayout({
   return (
     <main className="flex items-center justify-center my-72 gap-52">
       <Aside />
-      <div className="admin__background w-[60.4rem] h-[51.1rem] rounded-3xl p-16">
+      <div className="admin__background w-[60.4rem] min-h-[51.1rem] rounded-3xl p-16">
         {children}
       </div>
     </main>

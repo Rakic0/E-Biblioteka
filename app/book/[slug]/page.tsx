@@ -51,29 +51,29 @@ const page: FC<pageProps> = async ({ params }) => {
 
   return (
     <main>
-      <div className="max-w-[100rem] mx-auto my-44">
-        <div className="flex items-center justify-center gap-28 mb-44">
+      <div className="mx-auto my-52 max-w-[100rem]">
+        <div className="mb-44 flex items-center justify-center gap-28">
           <Image
             src={book.slika}
             alt={book.naslov}
             width={368}
             height={550}
-            className="w-[36.8rem] h-[55rem] aspect-auto"
+            className="aspect-auto h-[55rem] w-[36.8rem]"
           />
           <div className="w-[43.4rem]">
-            <span className="text-17 font-semibold text-guardsman_red mb-2 inline-block">
+            <span className="mb-2 inline-block text-17 font-semibold text-guardsman_red">
               {book.Kategorija.naziv}
             </span>
-            <h1 className="text-39 font-semibold leading-none text-black mb-4">
+            <h1 className="mb-4 text-39 font-semibold leading-none text-black">
               {book.naslov}
             </h1>
-            <h3 className="text-20 font-semibold text-smalt mb-6">
+            <h3 className="mb-6 text-20 font-semibold text-smalt">
               {book.Autor.ime} {book.Autor.prezime} - {book.godina_izdavanje}.
             </h3>
-            <p className="text-20 font-medium text-cod_gray mb-6 text-justify">
+            <p className="mb-6 text-justify text-20 font-medium text-cod_gray">
               {book.opis}
             </p>
-            <span className="text-16 text-cod_gray opacity-70 mb-4 block">
+            <span className="mb-4 block text-16 text-cod_gray opacity-70">
               Доступно {book.kolicina} ком.
             </span>
 
@@ -82,7 +82,7 @@ const page: FC<pageProps> = async ({ params }) => {
         </div>
 
         <svg
-          className="w-[74.6rem] mx-auto mb-44"
+          className="mx-auto mb-44 w-[74.6rem]"
           width="746"
           height="2"
           viewBox="0 0 746 2"
@@ -92,20 +92,20 @@ const page: FC<pageProps> = async ({ params }) => {
           <path d="M0 1H746" stroke="black" />
         </svg>
 
-        <div className="flex gap-11 items-center justify-center">
+        <div className="flex items-center justify-center gap-11">
           <Image
             src={AutorImage}
             alt="Autor knjige"
-            className="w-[21.5rem] h-[21.5rem]"
+            className="h-[21.5rem] w-[21.5rem]"
           />
           <div className="w-[43.4rem]">
-            <span className="text-17 font-semibold text-guardsman_red mb-2 inline-block">
+            <span className="mb-2 inline-block text-17 font-semibold text-guardsman_red">
               О аутору
             </span>
-            <h1 className="text-39 font-semibold leading-none text-black mb-4">
+            <h1 className="mb-4 text-39 font-semibold leading-none text-black">
               {book.Autor.ime} {book.Autor.prezime}
             </h1>
-            <p className="text-smalt text-justify text-20 font-medium leading-none">
+            <p className="text-justify text-20 font-medium leading-none text-smalt">
               {book.Autor.opis}
             </p>
           </div>

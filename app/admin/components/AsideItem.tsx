@@ -10,7 +10,7 @@ const AsideItem: FC<AsideItemProps> = ({ text, link }) => {
   return (
     <Link
       className="aside-item relative text-22 font-semibold block mb-16"
-      href={`admin/${link}`}
+      href={`/admin/${link}`}
     >
       {text}
     </Link>

@@ -45,6 +45,10 @@
     background-position: center;
   }
 
+  #autor:focus + #hiddenDiv {
+    display: block !important;
+  }
+
   .oProjektu__background {
     background-image: url("./images/oProjektu.png");
     background-repeat: no-repeat;

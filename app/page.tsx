@@ -39,7 +39,7 @@ export default async function Home() {
   const books = await fetchMostReadedBooks();
 
   return (
-    <main className="mb-96">
+    <main className="mb-96 mt-44">
       <section className="hero__background w-full h-[54.5rem] flex items-center justify-start mb-28">
         <div className="text-white w-[140rem] mx-auto">
           <div className="w-[44.7rem]">
@@ -63,7 +63,7 @@ export default async function Home() {
       <section className="w-[140rem] mx-auto mt-28">
         {/* Najcitanije */}
         <section className="grid grid-cols-4 mb-28">
-          {books.map((book) => (
+          {books?.map((book) => (
             <Book
               id={book.id}
               naslov={book.naslov}
