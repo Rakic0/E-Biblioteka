@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Custom imports
-import Book from "./components/Book";
-import Button from "./components/Button";
-import Separator from "./components/Separator";
+import Book from "@/components/Book";
+import Button from "@/components/Button";
+import Separator from "@/components/Separator";
 
 // Images
-import oProjektuSlika1 from "./images/oProjektuSlika1.png";
-import oProjektuSlika2 from "./images/oProjektuSlika2.png";
-import oProjektuSlika3 from "./images/oProjektuSlika3.png";
-import Nikola from "./images/nidza.png";
-import Rakic from "./images/rakic.png";
-import Ivica from "./images/ivica.png";
+import oProjektuSlika1 from "@/app/images/oProjektuSlika1.png";
+import oProjektuSlika2 from "@/app/images/oProjektuSlika2.png";
+import oProjektuSlika3 from "@/app/images/oProjektuSlika3.png";
+import Nikola from "@/app/images/nidza.png";
+import Rakic from "@/app/images/rakic.png";
+import Ivica from "@/app/images/ivica.png";
 
 const prisma = new PrismaClient();
 
@@ -40,13 +40,13 @@ export default async function Home() {
 
   return (
     <main className="mb-96 mt-44">
-      <section className="hero__background w-full h-[54.5rem] flex items-center justify-start mb-28">
-        <div className="text-white w-[140rem] mx-auto">
+      <section className="hero__background mb-28 flex h-[54.5rem] w-full items-center justify-start">
+        <div className="mx-auto w-[140rem] text-white">
           <div className="w-[44.7rem]">
-            <h2 className="text-47 font-semibold leading-tight mb-4">
+            <h2 className="mb-4 text-47 font-semibold leading-tight">
               Погледајте нашу понуду књига
             </h2>
-            <p className="text-17 font-medium mb-4">
+            <p className="mb-4 text-17 font-medium">
               Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
               accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
               eaque omnis et velit cupiditate minus asperiores ut.
@@ -60,9 +60,9 @@ export default async function Home() {
 
       <Separator text="Најчитаније" />
 
-      <section className="w-[140rem] mx-auto mt-28">
+      <section className="mx-auto mt-28 w-[140rem]">
         {/* Najcitanije */}
-        <section className="grid grid-cols-4 mb-28">
+        <section className="mb-28 grid grid-cols-4">
           {books?.map((book) => (
             <Book
               id={book.id}
@@ -75,13 +75,13 @@ export default async function Home() {
         </section>
 
         {/* O projektu */}
-        <section className="oProjektu__background w-full h-[57.4rem] relative text-white mb-28">
+        <section className="oProjektu__background relative mb-28 h-[57.4rem] w-full text-white">
           <div className="px-28 py-24">
-            <h3 className="text-47 font-semibold mb-4">
+            <h3 className="mb-4 text-47 font-semibold">
               О пројекту е-Библиотека
             </h3>
             <div className="w-[63.5rem]">
-              <p className="text-16 font-medium text-justify mb-8">
+              <p className="mb-8 text-justify text-16 font-medium">
                 Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate minus asperiores ut. Voluptas
@@ -89,7 +89,7 @@ export default async function Home() {
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate minus asperiores ut.
               </p>
-              <p className="text-16 font-medium text-justify mb-8">
+              <p className="mb-8 text-justify text-16 font-medium">
                 Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate minus asperiores ut. Voluptas
@@ -107,17 +107,17 @@ export default async function Home() {
             <Image
               src={oProjektuSlika1}
               alt=""
-              className="w-96 h-96 absolute top-[4.5rem] right-[4.5rem]"
+              className="absolute right-[4.5rem] top-[4.5rem] h-96 w-96"
             />
             <Image
               src={oProjektuSlika2}
               alt=""
-              className="w-96 h-96 absolute top-[16.7rem] right-[20.5rem]"
+              className="absolute right-[20.5rem] top-[16.7rem] h-96 w-96"
             />
             <Image
               src={oProjektuSlika3}
               alt=""
-              className="w-96 h-96 absolute top-[28.7rem] right-[36.2rem]"
+              className="absolute right-[36.2rem] top-[28.7rem] h-96 w-96"
             />
           </div>
         </section>
@@ -126,13 +126,13 @@ export default async function Home() {
 
         {/* Kreatori */}
         <section className="mt-28">
-          <div className="flex gap-6 items-center justify-center">
+          <div className="flex items-center justify-center gap-6">
             <div className="text-right">
-              <p className="text-guardsman_red text-29 font-semibold mb-2">
+              <p className="mb-2 text-29 font-semibold text-guardsman_red">
                 Никола Ранђеловић
               </p>
-              <div className="text-smalt font-semibold mb-4">
-                <p className="text-18 mb-4">Дизајнер</p>
+              <div className="mb-4 font-semibold text-smalt">
+                <p className="mb-4 text-18">Дизајнер</p>
 
                 <p className="text-14">
                   Instagram -{" "}
@@ -144,8 +144,8 @@ export default async function Home() {
                     @sadmonstaa
                   </a>
                 </p>
-                <p className="text-14 -mt-2">Discord - @sadmonstaa</p>
-                <p className="text-14 -mt-2">
+                <p className="-mt-2 text-14">Discord - @sadmonstaa</p>
+                <p className="-mt-2 text-14">
                   Github -{" "}
                   <a
                     href="https://github.com/iMonstaa"
@@ -156,7 +156,7 @@ export default async function Home() {
                   </a>{" "}
                 </p>
               </div>
-              <p className="text-cod_gray text-17 font-medium">
+              <p className="text-17 font-medium text-cod_gray">
                 Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate minus asperiores ut.
@@ -165,16 +165,16 @@ export default async function Home() {
             <Image
               src={Nikola}
               alt="Nikola"
-              className="w-[27.5rem] h-[27.5rem]"
+              className="h-[27.5rem] w-[27.5rem]"
             />
 
-            <Image src={Rakic} alt="Luka" className="w-[27.5rem] h-[27.5rem]" />
+            <Image src={Rakic} alt="Luka" className="h-[27.5rem] w-[27.5rem]" />
             <div className="text-left">
-              <p className="text-guardsman_red text-29 font-semibold mb-2">
+              <p className="mb-2 text-29 font-semibold text-guardsman_red">
                 Лука Ракић
               </p>
-              <div className="text-smalt font-semibold mb-4">
-                <p className="text-18 mb-4">Девелопер</p>
+              <div className="mb-4 font-semibold text-smalt">
+                <p className="mb-4 text-18">Девелопер</p>
 
                 <p className="text-14">
                   Instagram -{" "}
@@ -186,8 +186,8 @@ export default async function Home() {
                     @lukaarakic
                   </a>
                 </p>
-                <p className="text-14 -mt-2">Discord - @rakic</p>
-                <p className="text-14 -mt-2">
+                <p className="-mt-2 text-14">Discord - @rakic</p>
+                <p className="-mt-2 text-14">
                   Github -{" "}
                   <a
                     href="https://github.com/rakic0"
@@ -198,7 +198,7 @@ export default async function Home() {
                   </a>{" "}
                 </p>
               </div>
-              <p className="text-cod_gray text-17 font-medium">
+              <p className="text-17 font-medium text-cod_gray">
                 Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate minus asperiores ut.
@@ -218,16 +218,16 @@ export default async function Home() {
             </svg>
           </div>
 
-          <div className="flex gap-4 items-center justify-center w-[50rem] mx-auto ">
-            <Image src={Ivica} alt="" className="w-[20rem] h-[20rem]" />
+          <div className="mx-auto flex w-[50rem] items-center justify-center gap-4 ">
+            <Image src={Ivica} alt="" className="h-[20rem] w-[20rem]" />
             <div className="text-left">
-              <p className="text-guardsman_red text-29 font-semibold mb-2">
+              <p className="mb-2 text-29 font-semibold text-guardsman_red">
                 Ивица Станковић
               </p>
-              <div className="text-smalt font-semibold mb-4">
-                <p className="text-18 mb-4">ментор, професор у школи</p>
+              <div className="mb-4 font-semibold text-smalt">
+                <p className="mb-4 text-18">ментор, професор у школи</p>
               </div>
-              <p className="text-cod_gray text-17 font-medium leading-tight">
+              <p className="text-17 font-medium leading-tight text-cod_gray">
                 Voluptas enim vero incidunt voluptatum in omnis. Unde et facere
                 accusantium voluptatem fugiat aspernatur itaque ea. Praesentium
                 eaque omnis et velit cupiditate.

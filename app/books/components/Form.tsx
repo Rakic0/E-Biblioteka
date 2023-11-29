@@ -1,4 +1,4 @@
-import Button from "@/app/components/Button";
+import Button from "@/components/Button";
 import { FC, useState } from "react";
 
 interface FormProps {
@@ -23,7 +23,7 @@ const Form: FC<FormProps> = ({ handleChangeInput, inputs }) => {
           placeholder="Назив књиге..."
           value={inputs.naziv}
           onChange={handleChangeInput}
-          className="rounded-3xl text-cod_gray text-16 px-4 py-2"
+          className="rounded-3xl px-4 py-2 text-16 text-cod_gray"
         />
         <Button>Претрага</Button>
       </div>

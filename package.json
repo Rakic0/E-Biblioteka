@@ -19,7 +19,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
     "react-icons": "^4.11.0",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",

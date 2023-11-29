@@ -1,8 +1,8 @@
 const AdminPage = () => {
   return (
-    <div className="text-white text-center text-33 font-semibold flex items-center justify-center w-full h-full">
+    <p className="flex h-full w-full items-center justify-center text-center text-33 font-semibold text-white">
       Izaberite neku od opciju iz menija
-    </div>
+    </p>
   );
 };
 

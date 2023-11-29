@@ -1,68 +1,96 @@
-import { Autor, PrismaClient } from "@prisma/client";
-import Form from "./components/From";
-import { ChangeEvent } from "react";
-import { SubmitHandler } from "react-hook-form";
-
-export type Inputs = {
-  naziv: string;
-  imeAutora: string;
-  kategorija: string;
-  godinaIzdavanja: number;
-  kolicina: number;
-  file: string;
-};
-
-const prisma = new PrismaClient();
-
-const fetchAuthorsByInput = async (text: string) => {
-  const authors = await prisma.autor.findMany({
-    where: {
-      ime: {
-        contains: text,
-        mode: "insensitive",
-      },
-    },
-    take: 3,
-  });
-
-  return authors;
-};
-
-const fetchKategorijeByInput = async (text: string) => {
-  const authors = await prisma.kategorija.findMany({
-    where: {
-      naziv: {
-        contains: text,
-        mode: "insensitive",
-      },
-    },
-    take: 3,
-  });
-
-  return authors;
-};
+import Button from "@/components/Button";
+import ErrorMessage from "../components/ErrorMessage";
+import Input from "../components/Input";
+import { createBook } from "@/lib/actions";
 
 const DodajKnjiguPage = () => {
-  const handleOnAutorChange = async (text: string) => {
-    "use server";
-
-    if (text.length < 3) return;
-
-    return await fetchAuthorsByInput(text);
-  };
-
-  const handleOnKategorijaChange = async (text: string) => {
-    "use server";
-
-    if (text.length < 3) return;
-
-    return await fetchKategorijeByInput(text);
-  };
-
   return (
-    // prettier-ignore
-    //@ts-ignore
-    <Form handleOnAutorChange={handleOnAutorChange} handleOnKategorijaChange={handleOnKategorijaChange}/>
+    <>
+      <form action={createBook}>
+        <div>
+          <input
+            type="text"
+            name="naslov"
+            placeholder="Назив књиге..."
+            className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+          />
+          {/* <ErrorMessage>aasd</ErrorMessage> */}
+        </div>
+
+        <div className="mt-9 flex w-full items-baseline justify-between gap-4">
+          <div className="relative">
+            <input
+              type="text"
+              name="autor"
+              placeholder="Име и презиме аутора"
+              className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+            />
+
+            {/* <ErrorMessage>asd</ErrorMessage> */}
+          </div>
+
+          <div className="relative">
+            <input
+              type="text"
+              name="kategorija"
+              placeholder="Категорија"
+              className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+            />
+
+            {/* <ErrorMessage>asd</ErrorMessage> */}
+          </div>
+        </div>
+
+        <div className="mt-9 flex w-full items-baseline justify-between gap-4">
+          <div>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]+"
+              placeholder="Година издавања (од)"
+              name="godina"
+              className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+            />
+            {/* <ErrorMessage>asd</ErrorMessage> */}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]+"
+              placeholder="Комада на стању"
+              name="kolicina"
+              className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+            />
+            {/* <ErrorMessage>asd</ErrorMessage> */}
+          </div>
+        </div>
+
+        <div className="mx-auto mt-9 flex h-[21.5rem] w-[14.4rem] items-center justify-center bg-alto">
+          {/* <div className="mx-auto flex h-[4.8rem] w-[11.9rem] items-center justify-center rounded-full bg-smalt">
+            <label
+              htmlFor="file"
+              className="cursor-pointer text-center text-13 font-semibold leading-none text-white"
+            >
+              Додај или измени слику
+            </label>
+          </div> */}
+
+          <input
+            className={`mb-2 w-full rounded-full border-b-2 px-4 py-2 text-16 text-cod_gray outline-none invalid:border-b-2 invalid:border-guardsman_red`}
+            type="file"
+            name="file"
+            accept="image/png, image/jpg, image/jpeg"
+          />
+        </div>
+        {/* <ErrorMessage>asd</ErrorMessage> */}
+
+        <div className="mt-9 text-center">
+          <Button type="submit">Додај</Button>
+        </div>
+      </form>
+    </>
   );
 };
 

@@ -1,12 +1,12 @@
 import Image from "next/image";
-import bigLogo from "../images/bigLogo.png";
+import bigLogo from "@/app/images/bigLogo.png";
 import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="nav w-full h-[11rem] flex fixed z-50 top-0 left-0 items-center justify-center bg-white">
-      <Link href={"/"} className="flex gap-2 items-center">
-        <h1 className="text-33 text-smalt font-semibold">е-Библиотека</h1>
+    <nav className="nav fixed left-0 top-0 z-50 flex h-[11rem] w-full items-center justify-center bg-white">
+      <Link href={"/"} className="flex items-center gap-2">
+        <h1 className="text-33 font-semibold text-smalt">е-Библиотека</h1>
         <Image
           className="w-[31.3rem]"
           src={bigLogo}
