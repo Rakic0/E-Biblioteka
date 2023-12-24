@@ -1,3 +1,5 @@
+"use server";
+
 import Book from "@/components/Book";
 import Form from "./components/Form";
 import { PrismaClient } from "@prisma/client";

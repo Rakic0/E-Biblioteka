@@ -3,9 +3,10 @@
 import { z } from "zod";
 import prismadb from "./prismadb";
 import axios from "axios";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 const currentYear = new Date().getFullYear();
-
 const FormSchema = z.object({
   naslov: z.string().min(3),
   autor: z.string().min(1),
@@ -16,7 +17,7 @@ const FormSchema = z.object({
 
 export async function createBook(formData: FormData) {
   try {
-    const { naslov, autor, kategorija, godina, kolicina } = FormSchema.parse({
+    let { naslov, autor, kategorija, godina, kolicina } = FormSchema.parse({
       naslov: formData.get("naslov"),
       autor: formData.get("autor"),
       kategorija: formData.get("kategorija"),
@@ -37,12 +38,16 @@ export async function createBook(formData: FormData) {
       data: {
         naslov,
         kolicina,
+        godina_izdavanje: godina,
         opis: "Voluptas enim vero incidunt voluptatum in omnis. Unde et facere accusantium voluptatem fugiat aspernatur itaque ea. Praesentium eaque omnis et velit cupiditate. Voluptas enim vero incidunt voluptatum in omnis.",
         autor_id: +autor,
         kategorija_id: +kategorija,
         slika: slika.data.images_results[0].original,
       },
     });
+
+    revalidatePath("/admin/dodaj-knjigu");
+    redirect("/admin/dodaj-knjigu");
   } catch (error) {
     console.error(error);
   }

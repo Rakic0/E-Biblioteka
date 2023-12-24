@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Aside from "./components/Aside";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Admin page",
@@ -17,6 +18,7 @@ export default function AdminLayout({
       <div className="admin__background min-h-[51.1rem] w-[60.4rem] rounded-3xl p-16 ">
         {children}
       </div>
+      <ToastContainer />
     </main>
   );
 }
