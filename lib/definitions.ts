@@ -6,3 +6,8 @@ export type Book = {
   kolicina: number;
   file: File;
 };
+
+export type AuthorDataProps = {
+  value: string;
+  label: string;
+};

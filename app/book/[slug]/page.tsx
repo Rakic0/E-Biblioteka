@@ -1,18 +1,16 @@
-import Button from "@/app/components/Button";
-import { PrismaClient } from "@prisma/client";
+import Button from "@/components/Button";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FC } from "react";
 import AutorImage from "@/app/images/autor.png";
+import prismadb from "@/lib/prismadb";
 
 interface pageProps {
   params: { slug: string };
 }
 
-const prisma = new PrismaClient();
-
 const fetchBookById = async (id: number) => {
-  const book = await prisma.knjiga.findUnique({
+  const book = await prismadb.knjiga.findUnique({
     where: {
       id,
     },
@@ -51,7 +49,7 @@ const page: FC<pageProps> = async ({ params }) => {
 
   return (
     <main>
-      <div className="mx-auto my-52 max-w-[100rem]">
+      <div className="mx-auto my-52 mt-64 max-w-[100rem]">
         <div className="mb-44 flex items-center justify-center gap-28">
           <Image
             src={book.slika}
@@ -102,7 +100,7 @@ const page: FC<pageProps> = async ({ params }) => {
             <span className="mb-2 inline-block text-17 font-semibold text-guardsman_red">
               О аутору
             </span>
-            <h1 className="mb-4 text-39 font-semibold leading-none text-black">
+            <h1 className="mb-4 text-39 font-semibold capitalize leading-none text-black">
               {book.Autor.ime} {book.Autor.prezime}
             </h1>
             <p className="text-justify text-20 font-medium leading-none text-smalt">

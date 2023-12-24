@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Input from "./Input";
 import { Autor, Kategorija } from "@prisma/client";
 
 interface AutocompleteProps {
@@ -21,8 +20,8 @@ const Autocomplete: FC<AutocompleteProps> = ({
 }) => {
   return (
     <>
-      <Input
-        className={`${className} autocorrent`}
+      <input
+        className={`${className} relative`}
         name={name}
         type={type}
         placeholder={placeholder}
