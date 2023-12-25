@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.1",
     "@prisma/client": "^5.5.2",
     "@studio-freight/lenis": "^1.0.27",
     "axios": "^1.6.2",

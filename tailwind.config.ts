@@ -29,6 +29,9 @@ const config: Config = {
         cod_gray: "#1e1e1eb3",
         alto: "#D9D9D9",
       },
+      scale: {
+        "180": "1.8",
+      },
     },
   },
   plugins: [],

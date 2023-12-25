@@ -27,6 +27,9 @@
       font-size: calc(100vw / 550 * 10);
     }
   }
+  .cl-rootBox {
+    font-size: 16px;
+  }
 }
 
 @layer components {

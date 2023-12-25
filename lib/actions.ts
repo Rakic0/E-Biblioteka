@@ -31,7 +31,7 @@ export async function createBook(formData: FormData) {
       .replace(/,/g, "");
 
     const slika = await axios(
-      `https://serpapi.com/search.json?engine=google_images&q=${formattedTitle}knjiga&google_domain=google.com&gl=rs&hl=en&api_key=31f7751b62618b42bbb279248686cff907f31cbad0aacf81e96965a6a08adfb4`,
+      `https://serpapi.com/search.json?engine=google_images&q=${formattedTitle}+knjiga&google_domain=google.com&gl=rs&hl=en&api_key=${process.env.SERPAPI_KEY}`,
     );
 
     const book = await prismadb.knjiga.create({
