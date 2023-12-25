@@ -46,8 +46,8 @@ export async function createBook(formData: FormData) {
       },
     });
 
-    revalidatePath("/admin/dodaj-knjigu");
-    redirect("/admin/dodaj-knjigu");
+    revalidatePath("/admin");
+    redirect("/admin");
   } catch (error) {
     console.error(error);
   }

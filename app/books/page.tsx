@@ -4,10 +4,13 @@ import Book from "@/components/Book";
 import Form from "./components/Form";
 import { PrismaClient } from "@prisma/client";
 import { notFound } from "next/navigation";
+import { unstable_noStore } from "next/cache";
 
 const prisma = new PrismaClient();
 
 const fetchBooks = async () => {
+  unstable_noStore();
+
   const books = await prisma.knjiga.findMany({
     select: {
       id: true,
